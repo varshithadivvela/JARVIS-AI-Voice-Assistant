@@ -1,0 +1,13 @@
+streamlit
+SpeechRecognition
+pyttsx3
+opencv-python
+numpy
+pywhatkit
+deep-translator
+gTTS
+requests
+python-dotenv
+groq
+newsapi-python
+pyaudio
