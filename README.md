@@ -1,526 +1,676 @@
-# JARVIS-AI-Voice-Assistant
-A Python-based AI voice assistant with voice authentication, speech recognition, automation, and conversational AI.
+Absolutely. Based on the **actual JARVIS project features we reviewed**, I would use this updated professional README. It removes the overly generic claims and includes the features that are actually present in your code, including voice authentication, clap detection, Groq/LLaMA, WhatsApp, YouTube, Spotify, news, weather, reminders, screenshots, system utilities, and Streamlit.
 
-🤖 J.A.R.V.I.S – AI Voice Assistant
+## `README.md`
 
-An AI-powered voice assistant built with Python and Streamlit that combines speech recognition, natural language processing, computer vision, generative AI, automation, translation, and system utilities into a single intelligent assistant.
+````markdown
+# 🤖 J.A.R.V.I.S – AI Voice Assistant
 
-J.A.R.V.I.S. can authenticate users through voice, respond to natural-language queries, detect a clap to activate the assistant, provide contextual responses using LLaMA 3 through the Groq API, translate text, send WhatsApp messages, play YouTube content, provide news updates, schedule reminders, capture screenshots, and perform basic system diagnostics.
+J.A.R.V.I.S. is an AI-powered personal voice assistant developed using Python and Streamlit. The project integrates **speech recognition, text-to-speech, generative AI, voice authentication, audio-based clap detection, web automation, translation, and system utilities** into a single interactive assistant.
 
----
-
-🚀 Features
-
-🎙️ Voice Interaction
-
-- Speech-to-text using SpeechRecognition
-- Text-to-speech using pyttsx3
-- Natural-language voice commands
-- Context-aware responses
-
-🔐 Voice Authentication
-
-- Voice-based user authentication
-- MFCC-based voice feature extraction
-- Authentication before accessing assistant functionality
-
-👏 Clap Detection
-
-- Detects a clap sound through the microphone
-- Can be used as an activation mechanism for the assistant
-
-🧠 Generative AI
-
-- AI-powered conversational responses
-- Uses LLaMA 3 through the Groq API
-- Handles general questions and contextual conversations
-
-🌐 Translation
-
-- Automatic translation of responses
-- Supports multiple languages using Deep Translator
-
-📱 WhatsApp Automation
-
-- Send WhatsApp messages using voice commands
-- Uses PyWhatKit for WhatsApp automation
-
-▶️ YouTube Integration
-
-- Search and play YouTube videos
-- Voice-controlled YouTube playback
-
-📰 News Updates
-
-- Retrieves news using a news API
-- Provides current news information to the user
-
-⏰ Reminders & Alarms
-
-- Schedule reminders
-- Set alarms using voice commands
-
-📸 Screenshot Capture
-
-- Capture screenshots through voice commands
-
-🖥️ System Diagnostics
-
-- Performs basic system-related checks
-- Provides information about system status
-
-🖥️ Streamlit Interface
-
-- Interactive web-based interface
-- Displays assistant responses and application status
-- Provides a simple interface for interacting with J.A.R.V.I.S.
+The assistant can understand voice commands, generate intelligent responses using **LLaMA through the Groq API**, perform automation tasks, provide information, set reminders and alarms, interact with WhatsApp and YouTube, and perform several system-level operations.
 
 ---
 
-🧠 Project Architecture
+## 🚀 Features
 
-                         ┌───────────────────┐
-                         │      User         │
-                         └─────────┬─────────┘
-                                   │
-                         Voice / Text Input
-                                   │
-                                   ▼
-                         ┌───────────────────┐
-                         │    Streamlit UI   │
-                         └─────────┬─────────┘
-                                   │
-                                   ▼
-                         ┌───────────────────┐
-                         │ Speech Recognition│
-                         └─────────┬─────────┘
-                                   │
-                                   ▼
-                         ┌───────────────────┐
-                         │ Command Processing│
-                         └─────────┬─────────┘
-                                   │
-                  ┌────────────────┼────────────────┐
-                  │                │                │
-                  ▼                ▼                ▼
-             Generative AI    Automation       Utilities
-                  │                │                │
-                  ▼                ▼                ▼
-              LLaMA 3          WhatsApp       Reminders
-              Groq API         YouTube         News
-                               Translation     Screenshots
-                               etc.
-                  │
-                  ▼
-                         ┌───────────────────┐
-                         │   Assistant Reply  │
-                         └─────────┬─────────┘
-                                   │
-                         ┌─────────┴─────────┐
-                         ▼                   ▼
-                  Text Response        Voice Response
-                                      (pyttsx3)
+### 🎙️ Voice Interaction
+- Converts spoken commands into text using SpeechRecognition.
+- Responds to users using text-to-speech.
+- Supports English-India (`en-IN`) speech recognition.
+- Handles voice commands for different assistant functions.
+
+### 🔐 Voice Authentication
+- Includes a voice authentication mechanism.
+- Uses audio features for identifying an authorized voice.
+- Authentication is performed before accessing assistant functionality.
+
+> **Note:** The voice authentication system is intended for educational purposes and should not be considered production-grade biometric security.
+
+### 👏 Clap Detection
+- Detects clap sounds through microphone input.
+- Uses audio signal characteristics to identify a clap.
+- Can be used as an activation mechanism for J.A.R.V.I.S.
+
+### 🧠 Generative AI
+- Uses a Large Language Model to generate natural-language responses.
+- Integrates **LLaMA through the Groq API**.
+- Allows J.A.R.V.I.S. to answer general questions and handle conversational queries.
+
+### ▶️ YouTube
+- Plays YouTube content using voice commands.
+- Allows users to specify the content they want to play.
+
+Example:
+
+```text
+"Play a song on YouTube"
+````
+
+### 🎵 Spotify
+
+* Provides Spotify-related music functionality.
+* Opens Spotify and performs supported music-search actions.
+
+### 💬 WhatsApp Automation
+
+* Supports WhatsApp messaging through voice commands.
+* Can identify a contact and send a message.
+* Supports individual and group messaging functionality.
+
+Example:
+
+```text
+"Send a message"
+```
+
+J.A.R.V.I.S. asks for the recipient and message before sending it.
+
+> WhatsApp functionality may require WhatsApp Web and an appropriate browser environment.
+
+### 📰 News
+
+* Retrieves news information using a news API.
+* Provides the latest available news through voice interaction.
+
+Example:
+
+```text
+"Tell me today's news"
+```
+
+### 🌦️ Weather
+
+* Retrieves weather information for a specified city.
+* The user can provide the city name through voice input.
+
+Example:
+
+```text
+"What's the weather?"
+```
+
+### 📍 Location
+
+* Provides location-related information.
+* Supports location queries through voice commands.
+
+### 🌐 Internet Speed
+
+* Provides internet speed information through a supported command.
+
+### 🌐 IP Address
+
+* Retrieves the system's public IP address.
+
+### 📸 Screenshot
+
+* Captures screenshots through voice commands.
+
+Example:
+
+```text
+"Take a screenshot"
+```
+
+### ⏰ Alarm
+
+* Allows users to set alarms using voice commands.
+* Accepts a requested time and triggers the alarm accordingly.
+
+Example:
+
+```text
+"Set an alarm"
+```
+
+### 📝 Reminders
+
+* Allows users to create reminders.
+* Runs reminders using background threads.
+* Announces the reminder when the specified time is reached.
+
+Example:
+
+```text
+"Set a reminder"
+```
+
+### 📱 Social Media
+
+J.A.R.V.I.S. can open supported social media platforms through voice commands, including:
+
+* Facebook
+* WhatsApp Web
+* Discord
+* Instagram
+
+### 🖥️ System Utilities
+
+The assistant includes several Windows-based system utilities, including:
+
+* Calculator
+* Notepad
+* Microsoft Paint
+* Screenshot functionality
+* System condition checks
+* Webcam functionality
+
+> Some system features are Windows-specific.
 
 ---
 
-🛠️ Technologies Used
+## 🧠 Project Architecture
 
-Technology| Purpose
-Python| Core programming language
-Streamlit| User interface
-SpeechRecognition| Speech-to-text
-pyttsx3| Text-to-speech
-OpenCV| Computer vision and audio-related processing
-PyWhatKit| WhatsApp and YouTube automation
-Deep Translator| Language translation
-Groq API| Generative AI responses
-LLaMA 3| Large language model
-News API| News retrieval
-NumPy| Numerical and signal processing operations
-MFCC| Voice authentication features
+```text
+                       ┌─────────────────────┐
+                       │        USER         │
+                       └──────────┬──────────┘
+                                  │
+                          Voice / Command
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │    Streamlit UI     │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │ Speech Recognition  │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │ Command Processing  │
+                       └──────────┬──────────┘
+                                  │
+              ┌───────────────────┼───────────────────┐
+              │                   │                   │
+              ▼                   ▼                   ▼
+       Generative AI         Automation          Utilities
+              │                   │                   │
+              ▼                   ▼                   ▼
+        Groq / LLaMA         WhatsApp             Weather
+                              YouTube               News
+                              Spotify             Reminder
+                              Social Media        Screenshot
+                                                   System Tools
+              │                   │                   │
+              └───────────────────┼───────────────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │ Assistant Response  │
+                       └──────────┬──────────┘
+                                  │
+                                  ▼
+                       ┌─────────────────────┐
+                       │   Text-to-Speech    │
+                       └─────────────────────┘
+```
 
 ---
 
-🔐 Voice Authentication
+## 🔄 How J.A.R.V.I.S. Works
 
-J.A.R.V.I.S. includes a voice authentication mechanism based on Mel-Frequency Cepstral Coefficients (MFCC).
+The general workflow of the assistant is:
 
-The authentication pipeline can be represented as:
-
-Voice Input
-     ↓
-Audio Capture
-     ↓
-MFCC Feature Extraction
-     ↓
-Voice Feature Comparison
-     ↓
-Authentication
-     ↓
-Access to Assistant
-
-This adds an additional layer of personalization and security to the assistant.
-
-«Note: This is an educational voice-authentication implementation and should not be considered a production-grade biometric security system.»
-
----
-
-👏 Clap Detection
-
-The project includes clap detection as an alternative activation mechanism.
-
-Microphone Input
+```text
+Start Application
        ↓
-Audio Signal
+Voice Authentication
        ↓
-Signal Processing
+Activation / Clap Detection
        ↓
-Clap Detection
+Listen for User Command
        ↓
-Activate J.A.R.V.I.S.
+Speech-to-Text
+       ↓
+Process Command
+       ↓
+Identify Requested Function
+       ↓
+Execute Function
+       ↓
+Generate Response
+       ↓
+Text-to-Speech
+       ↓
+Response to User
+```
 
-This allows the assistant to respond to a predefined audio trigger.
+For AI-based questions:
 
----
-
-🤖 Generative AI with LLaMA 3
-
-J.A.R.V.I.S. integrates a large language model through the Groq API.
-
-The LLM component is responsible for generating natural-language responses to user queries.
-
-User Query
+```text
+User Voice
     ↓
-Command Processor
+Speech Recognition
+    ↓
+User Query
     ↓
 Groq API
     ↓
-LLaMA 3
+LLaMA
     ↓
-Generated Response
+AI Generated Response
     ↓
 J.A.R.V.I.S.
-
-The API key is loaded through an environment variable rather than being stored directly in the source code.
-
----
-
-🌍 Multilingual Translation
-
-The assistant can translate generated responses into a selected language using Deep Translator.
-
-Example workflow:
-
-User Query
-     ↓
-AI Response
-     ↓
-Translation
-     ↓
-Selected Language
-     ↓
-Text / Voice Output
+    ↓
+Voice Response
+```
 
 ---
 
-📱 WhatsApp Automation
+## 🛠️ Technologies Used
 
-J.A.R.V.I.S. can automate WhatsApp messaging through voice commands.
-
-Example workflow:
-
-Voice Command
-     ↓
-Identify Recipient
-     ↓
-Generate Message
-     ↓
-PyWhatKit
-     ↓
-WhatsApp
-
-The feature requires WhatsApp Web and an appropriate browser environment.
-
----
-
-▶️ YouTube Integration
-
-Users can interact with YouTube using voice commands.
-
-Examples include:
-
-"Play [song/video] on YouTube"
-
-J.A.R.V.I.S. processes the command and uses PyWhatKit to open/play the requested content.
+| Technology        | Purpose                                  |
+| ----------------- | ---------------------------------------- |
+| Python            | Core programming language                |
+| Streamlit         | Interactive user interface               |
+| SpeechRecognition | Speech-to-text                           |
+| pyttsx3           | Text-to-speech                           |
+| Groq API          | Generative AI integration                |
+| LLaMA             | Natural-language response generation     |
+| OpenCV            | Computer vision and webcam functionality |
+| PyWhatKit         | WhatsApp and YouTube automation          |
+| Deep Translator   | Language translation                     |
+| Requests          | HTTP/API requests                        |
+| PyAutoGUI         | Desktop automation                       |
+| NumPy             | Numerical/audio processing               |
+| Threading         | Background reminders and tasks           |
 
 ---
 
-📰 News Updates
+## 🔐 API Configuration
 
-The assistant can retrieve news information through a news API and present relevant updates to the user.
+J.A.R.V.I.S. uses external APIs for some features.
 
-User:
-"Tell me today's news"
+**API keys should never be hard-coded in the source code or uploaded to GitHub.**
 
-       ↓
+Create a local `.env` file:
 
-J.A.R.V.I.S.
-       ↓
-News API
-       ↓
-News Results
-       ↓
-Voice / Text Response
+```text
+GROQ_API_KEY=your_groq_api_key
+NEWS_API_KEY=your_news_api_key
+```
 
----
+Then access them in Python using environment variables:
 
-⏰ Reminders and Alarms
+```python
+import os
+from dotenv import load_dotenv
 
-The assistant supports scheduling reminders and alarms through voice commands.
+load_dotenv()
 
-Example:
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+```
 
-"Set an alarm for 7 AM"
+### ⚠️ Important
 
-The assistant processes the command and schedules the requested action.
+Do not upload:
 
----
+```text
+.env
+```
 
-📸 Screenshot Capture
+to GitHub.
 
-J.A.R.V.I.S. can capture screenshots when requested through a supported command.
+The repository's `.gitignore` should exclude the `.env` file.
 
-Example:
-
-"Take a screenshot"
-
-The application captures the current screen and saves the image locally.
+If an API key has previously been exposed publicly, revoke it and generate a new key before publishing the repository.
 
 ---
 
-🖥️ Streamlit Interface
+## 📱 WhatsApp Configuration
 
-The project uses Streamlit to provide an interactive interface.
+The WhatsApp functionality can remain in the project, but **personal phone numbers and contact information should not be hard-coded into the public repository**.
 
-The interface can display:
+For example, avoid:
 
-- Assistant status
-- User commands
-- AI responses
-- Translation output
-- Application controls
-- Voice interaction status
+```python
+phone_number = "+91XXXXXXXXXX"
+```
+
+Instead, use an environment variable or a local configuration file.
+
+```python
+phone_number = os.getenv("WHATSAPP_PHONE")
+```
+
+This allows the functionality to remain available without exposing personal information.
 
 ---
 
-📂 Project Structure
+## 💻 System Compatibility
 
-jarvis-ai-voice-assistant/
+J.A.R.V.I.S. is primarily designed for a **Windows environment**.
+
+Some functions use Windows-specific applications and paths, such as:
+
+* Calculator
+* Notepad
+* Microsoft Paint
+* Windows system utilities
+
+Some automation features may behave differently depending on:
+
+* Operating system
+* Screen resolution
+* Browser configuration
+* Microphone availability
+* Internet connection
+
+---
+
+## 📂 Project Structure
+
+```text
+JARVIS/
 │
 ├── jarvis.py
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── .env.example
 │
 └── assets/
     └── screenshots/
+```
 
-If additional files are required by your implementation, they can be added to the repository while keeping API keys and generated files excluded.
+Additional files may be added depending on the local configuration of the project.
 
 ---
 
-⚙️ Installation
+## ⚙️ Installation
 
-1. Clone the Repository
+### 1. Clone the Repository
 
-git clone https://github.com/YOUR-USERNAME/jarvis-ai-voice-assistant.git
-cd jarvis-ai-voice-assistant
+```bash
+```
 
-2. Create a Virtual Environment
+Navigate into the project directory:
 
+```bash
+cd JARVIS
+```
+
+### 2. Create a Virtual Environment
+
+Windows:
+
+```bash
 python -m venv venv
-
-Activate it on Windows:
-
 venv\Scripts\activate
+```
 
-On macOS/Linux:
+macOS/Linux:
 
+```bash
+python -m venv venv
 source venv/bin/activate
+```
 
-3. Install Dependencies
+### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
----
+### 4. Configure API Keys
 
-🔑 API Configuration
+Create a `.env` file:
 
-J.A.R.V.I.S. uses external APIs for some functionality.
-
-Create a ".env" file in the project directory:
-
+```text
 GROQ_API_KEY=your_groq_api_key
 NEWS_API_KEY=your_news_api_key
+```
 
-Then load the variables in Python using "python-dotenv".
-
-⚠️ Security
-
-Never upload your ".env" file or API keys to GitHub.
-
-Do not write:
-
-GROQ_API_KEY = "actual-secret-key"
-
-Instead use environment variables.
+Add any other required local configuration values without committing them to GitHub.
 
 ---
 
-▶️ Running the Application
+## ▶️ Running the Application
 
-After installing the dependencies and configuring the required API keys:
+Run the Streamlit application using:
 
+```bash
 streamlit run jarvis.py
+```
 
-The Streamlit application will start locally and provide a browser-based interface.
+The application will open in your browser.
+
+Make sure that:
+
+* Your microphone is available.
+* Required API keys are configured.
+* Your internet connection is active for online services.
+* WhatsApp Web is available if using WhatsApp automation.
+* Required system permissions are enabled.
 
 ---
 
-🎤 Example Commands
+## 🎤 Example Commands
 
-J.A.R.V.I.S. can respond to commands such as:
+Some example commands supported by J.A.R.V.I.S. include:
 
-"Who are you?"
-
-"Play a song on YouTube"
-
-"Send a WhatsApp message"
-
-"Translate this into Telugu"
-
+```text
 "Tell me the latest news"
+```
 
+```text
+"What's the weather?"
+```
+
+```text
+"Play music"
+```
+
+```text
+"Play a song on YouTube"
+```
+
+```text
+"Send a message"
+```
+
+```text
 "Set an alarm"
+```
 
+```text
+"Set a reminder"
+```
+
+```text
 "Take a screenshot"
+```
 
-"Check my system"
+```text
+"What's my IP address?"
+```
 
-The exact commands supported depend on the implementation in "jarvis.py".
+```text
+"Check my location"
+```
 
----
+```text
+"Check internet speed"
+```
 
-🔄 Overall Workflow
+```text
+"Open WhatsApp"
+```
 
-Start J.A.R.V.I.S.
-        ↓
-Voice Authentication
-        ↓
-Activation / Clap Detection
-        ↓
-Capture User Command
-        ↓
-Speech-to-Text
-        ↓
-Command Classification
-        ↓
-┌─────────────────────────────────┐
-│                                 │
-▼                                 ▼
-AI Query                     Specific Action
-│                                 │
-▼                                 ▼
-LLaMA 3                      YouTube / WhatsApp
-Groq API                     News / Translation
-│                            Reminder / Screenshot
-└──────────────┬──────────────────┘
-               ↓
-         Generate Response
-               ↓
-       Text-to-Speech Output
-               ↓
-             User
+```text
+"Open Instagram"
+```
+
+```text
+"Open Discord"
+```
+
+```text
+"Open Calculator"
+```
+
+```text
+"Open Notepad"
+```
+
+The exact commands depend on the command-processing logic implemented in `jarvis.py`.
 
 ---
 
-🎯 Key Learning Outcomes
+## 🧠 Voice Authentication Workflow
 
-This project provided practical experience with:
+```text
+Voice Input
+     ↓
+Audio Capture
+     ↓
+Feature Extraction
+     ↓
+Voice Comparison
+     ↓
+Authentication Result
+     ↓
+Authorized → Continue
+Unauthorized → Access Denied
+```
 
-- Python application development
-- Speech recognition
-- Text-to-speech systems
-- Natural Language Processing
-- Generative AI
-- Large Language Models
-- API integration
-- Voice authentication
-- MFCC feature extraction
-- Audio signal processing
-- Computer vision
-- Web automation
-- Translation APIs
-- Streamlit application development
-- Event-driven automation
-- Environment variable management
+The system uses voice characteristics to distinguish an authorized user from other voices.
 
 ---
 
-🔮 Future Improvements
+## 👏 Clap Detection Workflow
 
-Possible improvements include:
+```text
+Microphone
+     ↓
+Audio Signal
+     ↓
+Ambient Noise Measurement
+     ↓
+Threshold Calculation
+     ↓
+Clap Detection
+     ↓
+J.A.R.V.I.S. Activation
+```
 
-- Add wake-word detection
-- Improve voice authentication accuracy
-- Add a conversation history system
-- Add long-term memory
-- Add Retrieval-Augmented Generation (RAG)
-- Add local LLM support
-- Improve intent classification
-- Add more computer-control capabilities
-- Add weather integration
-- Add calendar integration
-- Add email automation
-- Add a more advanced Streamlit UI
-- Add authentication and user profiles
-- Add logging and error monitoring
-- Deploy the application as a web service
+This provides an alternative way of activating the assistant.
 
 ---
 
-⚠️ Limitations
+## ⏰ Reminder System
 
-- Some features require an active internet connection.
-- External APIs may have usage limits.
-- WhatsApp automation depends on WhatsApp Web and browser behavior.
-- Voice recognition can be affected by background noise.
-- Voice authentication is intended for educational purposes.
-- Some operating-system features may behave differently across Windows, Linux, and macOS.
-- API-dependent functionality requires valid API credentials.
+The reminder functionality runs in a background thread so that the assistant can continue performing other operations.
+
+```text
+User Command
+     ↓
+Reminder Message
+     ↓
+Reminder Time
+     ↓
+Background Thread
+     ↓
+Wait Until Specified Time
+     ↓
+Voice Notification
+```
 
 ---
 
-👩‍💻 Author
+## 🎯 Key Learning Outcomes
 
-NagaVenkataLakshmi HamsaVarshitha Divvela
+Through this project, I gained practical experience in:
 
-B.Tech – Computer Science & Engineering (AI & ML)
+* Python development
+* Artificial Intelligence
+* Generative AI
+* Large Language Models
+* Speech Recognition
+* Text-to-Speech
+* Natural Language Processing
+* Voice authentication
+* Audio signal processing
+* Computer Vision
+* API integration
+* Web automation
+* Desktop automation
+* Streamlit application development
+* Multithreading
+* Environment variable management
+
+---
+
+## 🔮 Future Improvements
+
+Future versions of J.A.R.V.I.S. could include:
+
+* Wake-word detection
+* Improved voice authentication
+* Conversational memory
+* Long-term user preferences
+* Retrieval-Augmented Generation (RAG)
+* Local LLM support
+* More advanced intent classification
+* Email automation
+* Calendar integration
+* Weather API integration improvements
+* More computer-control capabilities
+* Improved desktop automation
+* Multi-user profiles
+* Better error handling
+* More advanced Streamlit UI
+* Cloud deployment
+
+---
+
+## ⚠️ Limitations
+
+* Internet connectivity is required for several online features.
+* External APIs may have rate limits or availability restrictions.
+* Speech recognition can be affected by background noise.
+* WhatsApp automation depends on WhatsApp Web and browser behavior.
+* Some desktop automation features depend on screen resolution and system configuration.
+* Some system utilities are Windows-specific.
+* Voice authentication is intended for educational purposes and is not a production biometric security system.
+
+---
+
+## 👩‍💻 Author
+
+**NagaVenkataLakshmi HamsaVarshitha Divvela**
+
+**B.Tech – Computer Science & Engineering (AI & ML)**
 
 RVR & JC College of Engineering
 
-2025 Graduate
+**2025 Graduate**
 
 ---
 
-⭐ Project
+## ⭐ Support
 
-If you find this project interesting, consider giving the repository a ⭐ on GitHub.
+If you find this project useful or interesting, consider giving the repository a ⭐ on GitHub.
 
 ---
 
-📌 Disclaimer
+## 📌 Disclaimer
 
-J.A.R.V.I.S. is an educational AI assistant project created to demonstrate the integration of artificial intelligence, natural language processing, speech technologies, computer vision, APIs, and automation.
+J.A.R.V.I.S. is an educational and portfolio project created to demonstrate the integration of Artificial Intelligence, Generative AI, Speech Technologies, Computer Vision, APIs, and Automation.
 
-The project is not affiliated with or endorsed by Marvel, Iron Man, or any related intellectual property.
+This project is not affiliated with or endorsed by Marvel, Iron Man, or any related intellectual property.
+
+```
+
+### GitHub repository description
+
+For the **Description** box on GitHub, I'd use:
+
+> **AI-powered voice assistant built with Python and Streamlit, featuring LLaMA/Groq, voice authentication, clap detection, WhatsApp, YouTube, news, weather, reminders, and system automation.**
+
+That is stronger than the earlier description because it reflects the **actual features in your JARVIS code** rather than making it sound like a basic voice assistant.
+```
